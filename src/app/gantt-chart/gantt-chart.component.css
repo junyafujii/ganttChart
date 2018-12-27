@@ -1,0 +1,29 @@
+.border-setting{
+    border: 1px solid gray;
+}
+
+.bars{
+    height: 18px;
+    border-radius: 20px;
+}
+
+
+.card-size{
+    width: 100vh;
+}
+
+.exist-plan{
+    background:linear-gradient(0deg,white 0%,blue 50%,blue 50%,white 100%);
+}
+
+.plan-edge{
+    border-radius: 20px;
+}
+
+.scroll-x{
+    overflow-x: hidden;
+}
+
+.thead{
+    width: 20px;
+}

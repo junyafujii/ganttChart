@@ -10,7 +10,7 @@
       </tr>
       <tr>
         <td class="border-setting">ここユーザー名だお</td>
-        <td *ngFor="let items of dispDates" class="border-setting" [ngClass]="{'exist-plan': hasPlan()}" [ngClass]="{'plan-edge': isPlanEdge(items)}">&nbsp;</td>
+        <td *ngFor="let items of dispDates" class="border-setting" [ngClass]="{'exist-plan': hasPlan(),'plan-edge-start': isPlanEdgeS(items),'plan-edge-end': isPlanEdgeE(items)}">&nbsp;</td>
       </tr>
     </table>
   </div>

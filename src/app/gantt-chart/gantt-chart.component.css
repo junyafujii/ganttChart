@@ -1,27 +1,34 @@
-.border-setting{
-    border: 1px solid gray;
+td{
+    margin:0;
+    padding:0;
+}
+
+.bar{
+    background-color: palegreen;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    height: 20px;
+    white-space: nowrap;
 }
 
 .card-size{
-    width: 100vh - 1px;
+    width: auto;
 }
 
-.exist-plan{
-    background:linear-gradient(0deg,white 0%,blue 50%,blue 50%,white 100%);
+.gantt-width{
+    min-width: 20px;
+    text-align: center;
 }
 
-.plan-edge-start{
-    border-radius: 100px 0px 0px 100px/50px 0px 0px 50px;
-}
-
-.plan-edge-end{
-  border-radius: 0px 100px 100px 0px/0px 50px 50px 0px;
+.position-r{
+    position: relative;
 }
 
 .scroll-x{
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
-.thead{
-    width: 20px;
+.task-width{
+    min-width: 200px;
 }

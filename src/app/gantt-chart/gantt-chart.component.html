@@ -1,17 +1,51 @@
-<div class="card card-size">
+<div class="card card-size" #chart>
   <h5 class="card-header bg-primary text-white">
-    カードのヘッダ
+    {{projectName}}
   </h5>
-  <div class="card-body scroll-x">
-    <table class="border-setting">
-      <tr class="bg-info">
-        <th class="border-setting">ユーザー名</th>
-        <th *ngFor="let dispdate of dispDates" class="thead border-setting">{{dispdate}}</th>
-      </tr>
-      <tr>
-        <td class="border-setting">ここユーザー名だお</td>
-        <td *ngFor="let items of dispDates" class="border-setting" [ngClass]="{'exist-plan': hasPlan(),'plan-edge-start': isPlanEdgeS(items),'plan-edge-end': isPlanEdgeE(items)}">&nbsp;</td>
-      </tr>
-    </table>
+  <div class="card-body">
+    <div class="scroll-x">
+      <!-- 親table-->
+      <table border="0" class="parent-table">
+        <tr>
+          <td>
+            <!-- タスクtable -->
+            <table class="border position-r">
+              <!-- ヘッダ -->
+              <tr>
+                <td class="border-top task-width bg-primary text-white">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="border-top task-width bg-primary text-white">タスク名</td>
+              </tr>
+              <tr>
+                <!-- タスク名 -->
+                <div *ngFor="let task of taskData">
+                  <td class="border-top task-width">{{task.task_name}}</td>
+                </div>
+              </tr>
+            </table>
+          </td>
+          <!-- ガントtable -->
+          <td>
+            <table class="border">
+              <!-- ヘッダ(年月) -->
+              <tr>
+                <td class="gantt-width border-left border-top bg-primary text-white" *ngFor="let dispmonth of dispMonths" [attr.colspan]="dispmonth.span" [id]="dispmonth.month_name">{{dispmonth.month_name}}</td>
+              </tr>
+              <!-- ヘッダ(日付) -->
+              <tr>
+                <td class="gantt-width border-left border-top bg-primary text-white" *ngFor="let dispdate of dispDates; let i=index" [id]="'days_' + dispdate">{{dispdate}}</td>
+              </tr>
+              <!-- 年月 -->
+              <tr *ngFor="let task of taskData; let task_no=index">
+                <td class="gantt-width border-left border-top thead-day" *ngFor="let dispdate of dispDates; let i=index" [id]="'task_' + task_no">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
+  <!--  -->
+  <div class="bar" *ngFor="let task of taskData; let i=index" [id]="'bar_' + i">{{task.task_name}}</div>
 </div>
